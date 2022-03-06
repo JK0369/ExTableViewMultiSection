@@ -17,7 +17,7 @@
 		4ACB5A8727D46CDE008F6FA1 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB5A8627D46CDE008F6FA1 /* ProfileCell.swift */; };
 		4ACB5A8927D46CE9008F6FA1 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB5A8827D46CE9008F6FA1 /* TitleCell.swift */; };
 		4ACB5A8B27D46CF1008F6FA1 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB5A8A27D46CF1008F6FA1 /* OptionCell.swift */; };
-		4ACB5A8E27D47CBF008F6FA1 /* OnlyCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB5A8D27D47CBF008F6FA1 /* OnlyCellModel.swift */; };
+		4ACB5A8E27D47CBF008F6FA1 /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB5A8D27D47CBF008F6FA1 /* SettingSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 		4ACB5A8627D46CDE008F6FA1 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		4ACB5A8827D46CE9008F6FA1 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		4ACB5A8A27D46CF1008F6FA1 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
-		4ACB5A8D27D47CBF008F6FA1 /* OnlyCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyCellModel.swift; sourceTree = "<group>"; };
+		4ACB5A8D27D47CBF008F6FA1 /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
 		7CBE62D18D1BE91F6FB11207 /* Pods_ExSetting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExSetting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 		4ACB5A8C27D47CB6008F6FA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4ACB5A8D27D47CBF008F6FA1 /* OnlyCellModel.swift */,
+				4ACB5A8D27D47CBF008F6FA1 /* SettingSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,7 +236,7 @@
 			files = (
 				4ACB5A7627D46CB1008F6FA1 /* ViewController.swift in Sources */,
 				4ACB5A8727D46CDE008F6FA1 /* ProfileCell.swift in Sources */,
-				4ACB5A8E27D47CBF008F6FA1 /* OnlyCellModel.swift in Sources */,
+				4ACB5A8E27D47CBF008F6FA1 /* SettingSection.swift in Sources */,
 				4ACB5A8B27D46CF1008F6FA1 /* OptionCell.swift in Sources */,
 				4ACB5A8927D46CE9008F6FA1 /* TitleCell.swift in Sources */,
 				4ACB5A7227D46CB1008F6FA1 /* AppDelegate.swift in Sources */,

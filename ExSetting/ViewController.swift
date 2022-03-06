@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     $0.separatorStyle = .none
   }
   
-  private var dataSource = [OnlyCellModel]()
+  private var dataSource = [SettingSection]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,38 +31,68 @@ class ViewController: UIViewController {
   }
   
   private func refresh() {
-    self.dataSource = [
-      .profile(
-        profileImage: UIImage(named: "person"),
-        titleText: "Jake Kim",
-        descriptionText: "Apple ID, iCloud, 미디어 및 구입"
-      ),
-      .title(title: "iPhone 설정 마저 하기"),
-      .option(iconImage: UIImage(systemName: "pencil.fill"), title: "수정하기"),
-      .option(iconImage: UIImage(systemName: "square.and.arrow.up.fill"), title: "공유"),
-      .option(iconImage: UIImage(systemName: "paperplane.fill"), title: "네비게이션")
+    // profile
+    let profileModel = ProfileModel(
+      profileImage: UIImage(named: "person"),
+      titleText: "Jake Kim",
+      descriptionText: "Apple ID, iCloud, 미디어 및 구입"
+    )
+    let profileSection = SettingSection.profile([profileModel])
+    
+    // title
+    let titleModel = TitleModel(title: "iPhone 설정 마저 하기")
+    let titleSection = SettingSection.title([titleModel])
+    
+    // option
+    let optionModels = [
+      OptionModel(iconImage: UIImage(systemName: "pencil"), title: "수정하기"),
+      OptionModel(iconImage: UIImage(systemName: "square.and.arrow.up.fill"), title: "공유"),
+      OptionModel(iconImage: UIImage(systemName: "paperplane.fill"), title: "네비게이션")
     ]
+    let optionSection = SettingSection.option(optionModels)
+    
+    self.dataSource = [profileSection, titleSection, optionSection]
     self.settingTableView.reloadData()
   }
 }
 
 extension ViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     self.dataSource.count
   }
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    switch self.dataSource[section] {
+    case let .profile(profileModels):
+      return profileModels.count
+    case let .title(titleModels):
+      return titleModels.count
+    case let .option(optionModels):
+      return optionModels.count
+    }
+  }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    switch self.dataSource[indexPath.row] {
-    case let .profile(profileImage, titleText, descriptionText):
+    switch self.dataSource[indexPath.section] {
+    case let .profile(profileModels):
       let cell = tableView.dequeueReusableCell(withIdentifier: ProfileCell.id, for: indexPath) as! ProfileCell
-      cell.prepare(profileImage: profileImage, titleText: titleText, supplementText: descriptionText)
+      let profileModel = profileModels[indexPath.row]
+      cell.prepare(
+        profileImage: profileModel.profileImage,
+        titleText: profileModel.titleText,
+        supplementText: profileModel.descriptionText
+      )
       return cell
-    case let .title(title):
+    case let .title(titleModels):
       let cell = tableView.dequeueReusableCell(withIdentifier: TitleCell.id, for: indexPath) as! TitleCell
-      cell.prepare(titleText: title)
+      let titleModel = titleModels[indexPath.row]
+      cell.prepare(titleText: titleModel.title)
       return cell
-    case let .option(iconImage, title):
+    case let .option(optionModels):
       let cell = tableView.dequeueReusableCell(withIdentifier: OptionCell.id, for: indexPath) as! OptionCell
-      cell.prepare(icon: iconImage, titleText: title)
+      let optionModel = optionModels[indexPath.row]
+      cell.prepare(
+        icon: optionModel.iconImage,
+        titleText: optionModel.title
+      )
       return cell
     }
   }
